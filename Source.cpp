@@ -4,9 +4,9 @@ using namespace std;
 class MyString {
 	char * text;
 public:
-	MyString(char*);
-	MyString(MyString &);
-	~MyString();
+	MyString(char*); //constructor
+	MyString(MyString &);//copy constructor
+	~MyString(); //destructor
 
 	MyString operator+(const MyString & right) {
 
@@ -36,6 +36,10 @@ public:
 		}
 
 	}
+	
+	/*
+	the operator+ for cutting two strings together(the function argument is forwarded by reference to avoid calling the copy constructor)
+        */
 	MyString operator+=(const MyString & right) {
 
 		char* temp = new char[strlen(text) + 1];
